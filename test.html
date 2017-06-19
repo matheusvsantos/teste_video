@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>Teste Video</title>
+		<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+	</head>
+	<body>
+		<h1>
+			Teste Video
+		</h1>
+		 <video id="video"></video>
+		 <script>
+		   if(Hls.isSupported()) {
+		     var video = document.getElementById('video');
+		     var hls = new Hls();
+		     hls.loadSource('http://vsi.interlegis.leg.br:8080/hls/interlegis/index.m3u8');
+		     hls.attachMedia(video);
+		     hls.on(Hls.Events.MANIFEST_PARSED,function() {
+		       video.play();
+		   });
+		  }
+		 </script>
+	</body>
+</html>
